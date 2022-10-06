@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des admins</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header">Liste des admins</div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>PhoneNumber</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p:${listAdmins}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.username}"></td>
+                    <td th:text="${p.password}"></td>
+                    <td th:text="${p.firstName}"></td>
+                    <td th:text="${p.lastName}"></td>
+                    <td th:text="${p.email}"></td>
+                    <td th:text="${p.phoneNumber}"></td>
+                    <td>
+                        <a class="btn btn-danger" th:href="@{delete(id=${p.id})}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
